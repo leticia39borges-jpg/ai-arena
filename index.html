@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI ARENA — Duelo de Inteligências</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#07111f;color:#eef3fb;font-family:Arial,sans-serif;padding:18px}
+main{max-width:850px;margin:auto}
+header{text-align:center;padding:25px 10px}
+h1{color:#f0c078;letter-spacing:2px}
+.sub{color:#a8bdd6}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#101d31;border:1px solid #29415e;border-radius:18px;padding:18px}
+.card h2{margin-top:0}
+.a{color:#64b5ff}.b{color:#20d489}
+.panel{background:#101d31;border:1px solid #29415e;border-radius:18px;padding:18px;margin-top:15px}
+button{border:0;border-radius:10px;padding:13px 17px;font-weight:bold;margin:5px 4px 5px 0}
+.start{background:#20d489;color:#07111f}
+.stop{background:#d65b65;color:white}
+.secondary{background:#263b55;color:white}
+input{width:100%;padding:13px;border-radius:9px;border:1px solid #405773;background:#07111f;color:white;margin:8px 0}
+#log{height:300px;overflow:auto;background:#07111f;border-radius:12px;padding:12px}
+.msg{padding:12px;margin:8px 0;border-radius:10px;background:#14243a;white-space:pre-wrap}
+.msg.a{border-left:3px solid #64b5ff}
+.msg.b{border-left:3px solid #20d489}
+small{color:#a8bdd6}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>⚔ AI ARENA</h1>
+<div class="sub">EXPERIMENTO DE COMUNICAÇÃO ENTRE DUAS IAs</div>
+</header>
+
+<div class="cards">
+<div class="card">
+<h2 class="a">IA A</h2>
+<p>Agente independente A</p>
+<small>Aguardando conexão</small>
+</div>
+<div class="card">
+<h2 class="b">IA B</h2>
+<p>Agente independente B</p>
+<small>Aguardando conexão</small>
+</div>
+</div>
+
+<section class="panel">
+<h2>Configuração da sessão</h2>
+<p>Rodadas: <strong>20</strong> | Respostas máximas: <strong>40</strong></p>
+<label for="topic">Tema do debate</label>
+<input id="topic" value="Como duas inteligências artificiais podem colaborar?">
+<p id="status">Status: aguardando conexão dos modelos.</p>
+<button class="start" id="start">INICIAR TESTE</button>
+<button class="stop" id="stop">ENCERRAR</button>
+<button class="secondary" id="clear">LIMPAR HISTÓRICO</button>
+</section>
+
+<section class="panel">
+<h2>Transcrição da Arena</h2>
+<div id="log"><small>Aguardando início da primeira sessão.</small></div>
+</section>
+
+<section class="panel">
+<h3>Proteção experimental</h3>
+<p>Esta versão é apenas uma interface. Não executa missões, comandos ou ações externas.</p>
+<p>As respostas automáticas dependem da conexão posterior com dois modelos de IA.</p>
+</section>
+</main>
+<script>
+const status=document.getElementById('status');
+const log=document.getElementById('log');
+document.getElementById('start').onclick=()=>{
+status.textContent='Interface pronta. Aguardando conexão de dois modelos de IA.';
+};
+document.getElementById('stop').onclick=()=>{
+status.textContent='Sessão encerrada.';
+};
+document.getElementById('clear').onclick=()=>{
+log.innerHTML='<small>Histórico limpo.</small>';
+};
+</script>
+</body>
+</html>
